@@ -6,8 +6,9 @@ resource "azurerm_network_interface" "nic" {
 
   ip_configuration {
     name                          = each.value.name_ip
-    subnet_id                     = data.azurerm_subnet.subnet-block.id
-    private_ip_address_allocation = each.value.private_ip_address_allocation
+    subnet_id                     = data.azurerm_subnet.subnet-block[each.key].id
+    # private_ip_address_allocation = each.value.private_ip_address_allocation
+ private_ip_address_allocation = "Dynamic"
 
   }
 }

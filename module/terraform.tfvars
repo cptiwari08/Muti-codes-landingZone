@@ -4,6 +4,7 @@ module_rg = {
     location            = "eastus2"
 
   }
+}
 
   module_vnet = {
     vnet01 = {
@@ -32,30 +33,37 @@ module_rg = {
       address_prefixes_sb = ["10.0.2.0/24"]
     }
 
-        sb003 = {
+    #     sb003 = {
+    #   resource_group_name   = "cptiwari-rg"
+    #   location              = "eastus2"
+    #   vnet_name             = "cpt_vnet"
+    #   bastion_name           = "AzureBastionSubnet"
+    #   address_prefixes_sb = ["10.0.3.0/24"]
+    #   allocation_method     = "Static"
+    #   ip_name               = "bastionpip"
+    #   sku                   = "Standard"
+    #   bastion_name_name     = "tiwari-bastion"
+    # }
+  }
+  module_bastain = {
+    bs01 = {
+      bastion_name           = "AzureBastionSubnet"
       resource_group_name   = "cptiwari-rg"
       location              = "eastus2"
       vnet_name             = "cpt_vnet"
-      bastion_name           = "AzureBastionSubnet"
-      address_prefixes_sb = ["10.0.3.0/24"]
+     address_prefixes = ["10.0.3.0/24"]
+
+     
       allocation_method     = "Static"
       ip_name               = "bastionpip"
       sku                   = "Standard"
-      bastion_name_name     = "tiwari-bastion"
+      
+      bastion_block_name="bastionblock"
+
+
+
     }
   }
-  # module_bastain = {
-  #   bs01 = {
-  #     resource_group_name   = "cptiwari-rg"
-  #     location              = "eastus2"
-  #     vnet_name             = "cpt_vnet"
-  #     bastion_name_name     = "tiwari-bastion"
-  #     # address_prefixes_sb01 = ["10.0.3.0/24"]
-  #     allocation_method     = "Static"
-  #     ip_name               = "bastionpip"
-  #     sku                   = "Standard"
-  #   }
-  # }
   module_vm = {
     vm01 = {
       resource_group_name           = "cptiwari-rg"
@@ -79,7 +87,7 @@ module_rg = {
       name_sql                      = "cpt-sqlserver1"
       name_db                       = "cpt-sqldatabase1"
     }
-  }
+  
   vm2 = {
     resource_group_name           = "cptiwari-rg"
     location                      = "eastus2"
@@ -120,12 +128,12 @@ module_stg = {
   stg1 = {
     resource_group_name = "cptiwari-rg"
     location            = "eastus2"
-    stg_name_name       = "cpt-stg008-01"
+    stg_name       = "cptstg00801"
   }
   stg2 = {
     resource_group_name = "cptiwari-rg"
     location            = "eastus2"
-    stg_name_name       = "cpt-stg008-02"
+    stg_name       = "cptstg00802"
   }
 }
 
